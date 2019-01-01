@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+
+		#box{
+
+			width:300px;
+			height:300px;
+			position: relative;
+			margin:60px auto;
+		}
+
+		#pic{
+			list-style-type: none;
+		}
+		#pic li{
+			width: 100px;
+			height: 100px;
+			float:left;
+			overflow: hidden;
+		}
+
+		p{
+
+		}
+/*
+		#pic img{
+			width:200px;
+			height: 200px;
+		}*/
+		#gameInfo{
+			width:300px;
+			height: 100 px;
+			position: relative;
+			margin: 0% 50%;
+		}
+
+	</style>
+</head>
+
+<body>
+	<marquee><h1>打地鼠1.0</h1></marquee>
+	<div id = "box">
+		<ul id = "pic">
+			<li><img src="5.jpg"></li>
+			<li><img src="5.jpg"></li>
+			<li><img src="5.jpg"></li>
+			<li><img src="5.jpg"></li>
+			<li><img src="5.jpg"></li>
+			<li><img src="5.jpg"></li>
+			<li><img src="5.jpg"></li>
+			<li><img src="5.jpg"></li>
+			<li><img src="5.jpg"></li>
+		</ul>
+	</div>
+	<div id = "gameInfo">
+		<span id = "score">0</span>
+	</div>
+	<audio src="mp3/895.mp3" id="good"   hidden="true"></audio>
+	<audio src="mp3/bgm.mp3" id ="bgm"  loop="loop" hidden="true"></audio>
+</body>
+<script type="text/javascript">
+	var gameBox = document.getElementById("box");
+	var img = document.getElementsByTagName('img');
+	var scoreBorad = document.getElementById("score");
+	var score = 0;
+	var bgm = document.getElementById("good");
+	var bgm1 = document.getElementById("bgm");
+
+	
+	function play(speed){
+		 setInterval(function(){
+			var x = Math.round(Math.random()*8);
+			img[x].src = '2.gif';
+			x = Math.round(Math.random()*8);
+			img[x].src = '5.jpg';
+		},speed);
+	}
+	
+	play(1000);
+	
+	for(var i = 0; i < img.length; i++){
+		img[i].onmousedown = function(){
+			src = this.src;
+			if(src.charAt(src.length-5) == '2'){
+				this.src = '5.jpg';
+				score++;
+				scoreBorad.innerText= score;
+				bgm.load();
+				bgm.play();
+				bgm1.play();				
+			}else{
+				score--;
+				scoreBorad.innerText = score;
+			}
+			if(score%5 == 0){
+				play(1000-score*20);
+			}
+		}
+	}
+
+</script>
+</html>

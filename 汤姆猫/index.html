@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin:0;padding: 0;
+    }
+    html,body,#box,#cat{
+        width:100%;
+        height:100%;
+    }
+    img{
+        position:absolute;
+        width: 18%;
+    }
+
+    #cymbal{
+        bottom:37%;
+        left:10%;
+    }
+
+    #drink{
+        bottom:27%;
+        left:10%;
+    }
+
+    #eat{
+        bottom:17%;
+        left: 10%;
+    }
+    #fart{
+        bottom:37%;
+        right:10%;
+    }
+
+    #pie{
+        bottom:27%;
+        right:10%;
+    }
+
+    #scratch{
+        bottom:17%;
+        right: 10%;
+    }
+    #stomach{
+        position: absolute;
+        bottom:13%;
+        right: 35%;
+        width:30%;
+        height:20%;
+    }
+    </style>
+</head>
+<body>
+    <div id = "box">
+        <img id = 'cat' src="Animations/angry/angry_00.jpg" alt="">
+        <img id = 'cymbal'  src="Buttons/cymbal/cymbal.png" alt="">
+        <img id = 'drink' src="Buttons/drink/drink.png" alt="">
+        <img id = 'eat' src="Buttons/eat/eat.png" alt="">
+        <img id = 'fart' src="Buttons/fart/fart.png" alt="">
+        <img id = 'pie'  src="Buttons/pie/pie.png" alt="">
+        <img id = 'scratch' src="Buttons/scratch/scratch.png" alt="">
+        <div id = 'stomach'></div> 
+    </div>
+</body> 
+<script>
+    window.onload = function(){
+        var box = document.getElementById('box');
+        var cat = document.getElementById('cat');
+        var cymbal = document.getElementById('cymbal');
+        var drink = document.getElementById('drink');
+        var eat = document.getElementById('eat');
+        var fart = document.getElementById('fart');
+        var pie = document.getElementById('pie');
+        var scratch = document.getElementById('scratch');
+        var stomach = document.getElementById('stomach');
+        var button = [{elem:stomach,num:33},{elem:cymbal,num:12},{elem:drink,num:80},
+        {elem:eat,num:39},{elem:fart,num:27},{elem:pie,num:23},{elem:scratch,num:55}];
+        var time = null;
+
+        for(var btn of button){
+            setPlay(btn.elem,btn.num);
+        }
+        
+        function setPlay(elem,picNum){
+            elem.onclick = function(){
+                var num = 0;
+                clearInterval(time);
+            time =  setInterval(function(){
+                    num ++;
+                    var name = elem.getAttribute('id');
+                    if(num >picNum){
+                        clearInterval(time);
+                    }else{
+                        if(num<10){
+                            cat.src='Animations/'+name+'/'+name+'_0'+num+'.jpg';
+                        }else{
+                            cat.src = 'Animations/'+name+'/'+name+'_'+num+'.jpg';
+                        }
+                    }
+                },80);
+            }
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0}
+
+        body{
+            background: black;
+        }
+
+        #canval{
+            width: 240px;
+            height: 360px;
+            background: white;
+            position: relative;
+            margin: 50px auto;
+            overflow: hidden;
+        }  
+        
+        img{
+            
+
+            width: 60px;
+            height: 60px;
+            float: left;
+   
+        }
+
+        #gameZone1{
+            position: absolute;
+            width:240px;
+            height:360px; 
+            top:0px;
+            /* background: url('5.jpg'); */
+        }
+        #gameZone2{
+            width: 240px;
+            height: 360px;
+            position: absolute;
+            /* background: url('5.jpg'); */
+            top:-360px;
+        }
+
+        #gameZone{
+            width: 240px;
+            height:720px;
+            position: absolute;
+            top:-360px;
+            /* background: url('5.jpg'); */
+        }
+
+    </style>
+   
+</head>
+<body>
+    <div id = "canval">
+        <!-- <div id = "gameZone"> -->
+            <div  id = "gameZone1">
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>
+               <img src = "5.jpg"/>  
+            </div>
+            <div  id = "gameZone2">
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    <img src = "5.jpg"/>
+                    
+            </div>
+        <!-- </div> -->
+    </div>
+</body>
+<script>
+    const touchNum = 2;
+    const rowNum = 6;
+    const gameZoneNum = 2;
+    const maxTouch = 2;
+    var colNum = maxTouch*touchNum;
+
+    var keys = document.getElementsByTagName("img");
+    console.log(keys.length);
+
+    var glass = '5.jpg';
+    var zip = '2.gif';
+    //随机生成土拨鼠
+    function randKey(gameZone){
+        var baseNum = gameZone*colNum*rowNum;
+        var keyNum = null;
+        var black = null;
+       
+        for(var i = 0; i < rowNum; i++){
+            if(Math.round(Math.random()*10) >= 7){ 
+                for(var j = 0; j < maxTouch; j++){
+                    black = Math.round(Math.random()*(touchNum-1));
+                    keyNum = i*colNum+j*maxTouch+black+baseNum;
+                    console.log(keyNum);
+                    keys[keyNum].src = zip;
+                }
+            }else{
+                black = Math.round(Math.random()*(touchNum*maxTouch-1));
+                keyNum =  i*colNum+black+baseNum;
+                keys[keyNum].src = zip;
+            }
+
+        }
+    }
+
+    function clearKey(gameZone){
+        var baseNum = gameZone*colNum*rowNum;
+        var keyNum = null;
+        var black = null;
+        for(var i = 0; i < rowNum ; i++){
+            for(var k = 0 ; k < colNum; k++){
+                keyNum = i*colNum+k+baseNum;
+                keys[keyNum].src = glass;
+            }
+        }
+    }
+
+    randKey(0);
+    randKey(1);
+
+  
+    var gameZone1 = document.getElementById('gameZone1');
+    var gameZone2 = document.getElementById('gameZone2');
+    var gameCanval = [gameZone1,gameZone2];
+    // var gameZoneHeight = gameZone.style.height;
+    var pageNum = 0;
+    var gameZoneToMove = 0;
+
+    function scroll(speed){
+        var top1 = gameZone1.offsetTop;
+        var top2 = gameZone2.offsetTop;
+        var top = [top1,top2];
+
+        //console.log(top1+" "+top2);
+        // if(top1 == 360 || top2 == 360){
+        //     pageNum++;
+        //     gameCanval[gameZoneToMove].style.top = -360+'px';
+        //     top[gameZoneToMove] = -360;
+        //     randKey(gameZoneToMove);
+        //     gameZoneToMove  = 1 - gameZoneToMove;
+        // }
+
+        if(top1 == 360){
+            pageNum++;
+            gameZone1.style.top = -360+'px';
+            top1 = -360;
+            clearKey(gameZoneToMove);
+            randKey(gameZoneToMove);
+            gameZoneToMove  = 1 - gameZoneToMove;
+
+        }
+        if(top2 == 360){
+            pageNum++;
+            gameZone2.style.top = -360+'px';
+            top2 = -360;
+            clearKey(gameZoneToMove);
+            randKey(gameZoneToMove);
+            gameZoneToMove  = 1 - gameZoneToMove;
+        }
+
+        gameZone2.style.top = top2 + speed + 'px';
+        gameZone1.style.top = top1 + speed + 'px';
+
+        
+        // if(top%360 == 0){
+            
+        //     gameCanval[initZone].style.top = -720+'px';
+        //     initZone = 1 - initZone;
+        // }
+        // gameZone.style.top = top + speed+'px';
+    }
+
+    var start = false;
+    var scrollP = null;
+    var baseSpeed = 5;
+   gameZone1.onclick = function(){
+       if(start){
+           return;
+       }
+       start = true;
+       scrollP = setInterval(function(){
+        scroll(baseSpeed);
+       },40);
+   }
+
+   var score = 0 ;
+   for(var i = 0; i < keys.length; i++){
+		keys[i].onclick = function(){
+			src = this.src;
+			if(src.charAt(src.length-5) == '2'){
+				this.src = '5.jpg';
+				score++;
+				
+								
+			}else{
+				score--;
+			
+			}
+			if(score%10 == 0){
+                // clearInterval(scrollP);
+                //scrollP = setInterval(scroll(score/10+baseSpeed),10);
+			}
+		}
+	}
+   
+</script>
+</html>

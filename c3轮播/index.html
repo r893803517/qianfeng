@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin:0;padding: 0;}
+
+		#box{
+			width:520px;
+			height:280px;
+			margin:0 auto;
+			overflow: hidden;
+		}
+
+		ul,li{
+			list-style:none;
+		}
+		#list{
+			width: 3120px;
+			height: 280px;
+			animation:lunBo 10s ease-in-out infinite;
+
+		}
+		li{
+			float: left;
+		}
+
+		@keyframes lunBo{
+			0%{transform: translateX(0);}
+			20%{transform: translateX(-520px);}
+			40%{transform: translateX(-1040px);}
+			60%{transform: translateX(-1560px);}
+			80%{transform: translateX(-2080px);}
+			100%{transform: translateX(-2600px);}
+		}
+	</style>
+
+</head>
+<body>
+	<div id = "box">
+		<ul id="list">
+			<li><img src="1.jpg"/></li>
+			<li><img src="2.jpg"/></li>
+			<li><img src="3.jpg"/></li>
+			<li><img src="4.jpg"/></li>
+			<li><img src="5.jpg"/></li>
+			<li><img src="1.jpg"/></li>
+		</ul>	
+	</div>
+</body>
+</html>

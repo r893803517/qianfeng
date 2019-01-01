@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<style>
+		
+		*{margin:0;padding:0;}
+		
+		.min-box{
+			height:300px;
+			width:300px;
+			/*background: pink;*/
+			float:left;
+		}
+		
+		#box{
+			width:900px;
+			height:300px;
+			/*background: red;*/
+			margin: 200px auto;
+		}
+		.min-box span{
+			display: block;
+			width:100%;
+			height:200px;
+			text-align:center;
+			padding-top:50px;
+		}
+		.min-box a{
+			display: block;
+			position:relative; 
+			width:220px;
+			height:30px;
+			border:2px solid white;
+			text-decoration: none;
+			
+			color: green;
+			margin:0px auto;
+			background:url(allow.png) no-repeat 180px center;
+			line-height: 30px;
+		}
+		.min-box span img{
+			transition:all 1s;
+		}
+		.min-box span:hover img{
+			transform:rotate(360deg) scale(1.2);
+		}
+		.min-box a:hover{
+			background:url(allow.png) no-repeat 190px center;
+		}
+		.min-box a p{
+			background: white;
+			position:absolute;
+			transition: all 1s;
+		}
+		.min-box a .top{
+			width:0%;
+			height:2px;
+			top:-2px;
+			left:-100%;
+		}
+		.min-box a:hover .top{
+			left:0;
+			width: 100%;
+		}
+		.min-box a .bottom{
+			width:0%;
+			height:2px;
+			bottom:-2px;
+			right:-100%;
+		}
+		.min-box a:hover .bottom{
+			right:0;
+			width: 100%;
+		}
+		.min-box a .right{
+			height:0%;
+			width:2px;
+			right:-2px;
+			top:-100%;
+		}
+		.min-box a:hover .right{
+			top:0;
+			height:100%;
+		}
+		.min-box a .left{
+			height:0%;
+			width:2px;
+			left:-2px;
+			bottom:-100%;
+		}
+		.min-box a:hover .left{
+			bottom:0;
+			height:100%;
+		}
+	</style>
+	
+	<body bgcolor="black">
+		<div id = "box">
+			<div class = "min-box">
+			<span>
+				<image src="mission.png"></image>
+			</span>
+			<a >&nbsp;MISSION
+				<p class = "top"></p>
+				<p class = "right"></p>
+				<p class = "bottom"></p>
+				<p class = "left"></p>
+			</a>
+			</div >
+			<div class = "min-box">
+			<span>
+				<image src="play.png"></image>
+			</span>
+			<a >&nbsp;PLAY
+				<p class = "top"></p>
+				<p class = "right"></p>
+				<p class = "bottom"></p>
+				<p class = "left"></p>
+			</a>
+			</div >
+			<div class = "min-box">
+			<span>
+				<image src="touch.png"></image>
+			</span>
+			<a >&nbsp;TOUCH
+				<p class = "top"></p>
+				<p class = "right"></p>
+				<p class = "bottom"></p>
+				<p class = "left"></p>
+			</a>
+			</div >
+			
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="box1">
+		<img src="1.png">
+		<figcaption>
+			<h1>Billboard No.1</h1>
+			<p>first part</p>
+			<p>second part</p>
+			<p>thrid part</p>
+		</figcaption>
+
+	</div>
+	<div id = "box2">
+		<img src="2.png">
+		<figcaption>
+			<p cltionass = "fadein1">everybody here wanted something more</p>
+			<p class = "fadein2">searching for a sound we hadn't hear before</p>
+			<p class = "fadein3">and it say...</p>
+		</figcaption>
+	</div>
+	<div id = "box3">
+		<img src="3.png">
+		<figcaption >
+			<h2>Back To December</h2>
+			<pre><p>
+i miss your tank skin, your sweet smile
+so good to me
+so right
+			</p>></pre>
+		</figcaption>
+	</div>
+	<div id = "box4">
+		<img src="4.png">
+		<h2></h2>
+		<h3>1989</h3>
+	</div>
+	<div id = "box5">
+		<img src="5.png">
+		<div id = "frame"></div>
+		
+	</div>
+	<img id = "music" onclick = "playAudio(this)" src="musicBtn.png">
+	<audio src="WANEGBT.mp3" autoplay="true"></audio>
+
+	<script >
+		function playAudio(img){
+		var palyer = document.getElementsByTagName('audio')[0];
+		if(palyer.paused){
+				palyer.play();
+				img.src = "musicBtn.png";
+			}else{
+				img.src = "musicBtnOff.png";
+				palyer.pause();
+			}
+
+		}
+	</script>
+
+</body>
+</html>

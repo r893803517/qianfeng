@@ -1,0 +1,196 @@
+@charset "utf-8"; /*编码格式*/
+
+*{maring:0;padding:0;}
+
+div{
+	width:33.3%;
+	height:350px;
+	float:left;
+	overflow: hidden;
+	position: relative;
+}	
+
+div:hover img{
+	opacity: 0.5;
+}
+
+#box1 img{
+	transition: all 1s;
+	transform: translate(0);
+}
+
+#box1:hover img{
+	transform: translateX(30px);
+}
+
+#box1 figcaption h1,p{
+	position: absolute;
+}
+
+
+#box1 figcaption p{
+	background: blue;
+	transition: 0.8s;
+}
+
+
+#box1 figcaption h1:nth-child(1){
+	
+	left:30px;
+	top:30px;
+	transition: all 1s;
+	transform: translateX(0);
+}
+
+#box1:hover figcaption h1{
+	transform: translateX(30px);
+}
+
+
+#box1 figcaption p:nth-child(2){
+	left:-300px;
+	top:35%;
+}
+
+#box1 figcaption p:nth-child(3){
+	left:30px;
+	top:-300px;
+}
+
+#box1 figcaption p:nth-child(4){
+	left:30px;
+	top:500px;
+}
+
+#box1:hover figcaption p:nth-child(2){
+	transform:translateX(330px); 
+}
+#box1:hover figcaption p:nth-child(3){
+	top:42.5%;
+}
+#box1:hover figcaption p:nth-child(4){
+	top:50%;
+}
+
+#box2 figcaption p{
+	position: absolute;
+	background-color: white;
+}
+
+#box2 figcaption p:nth-child(1){
+	left:-400px;
+	top:90px;
+	transition: all 1s;
+	transform: translateX(0);
+}
+#box2 figcaption p:nth-child(2){
+	left:-400px;
+	top:120px;
+	transition: all 1s .2s;
+	transform:translateX(0);
+}
+#box2 figcaption p:nth-child(3){
+	left:-400px;
+	top:150px;
+	transition: all 1s .4s;
+	transform:translateX(0);
+}
+
+#box2:hover figcaption p:nth-child(1){
+	transform: translateX(430px);
+}
+#box2:hover figcaption p:nth-child(2){
+	transform: translateX(430px);
+}
+#box2:hover figcaption p:nth-child(3){
+	transform: translateX(430px);
+}
+
+
+#box3 figcaption h2,p{
+	position: absolute;
+	transform: translateY(0);
+}
+#box3 figcaption h2{
+	color: white;
+	top:-100px;
+	left:30px;
+	transition: all 1.5s .3s;
+}
+#box3 figcaption p{
+	top:130%;
+	left:30px;
+	opacity: 0;
+	transition: all 2s;
+}
+
+#box3:hover figcaption h2{
+	transform: translateY(150px);
+}
+
+#box3:hover figcaption p{
+	transform: translateY(-300px);
+	opacity: 1;
+} 
+
+
+#box4 h2{
+	position: absolute;
+	top:100%;
+	left:-200%;
+	display: block;
+	width:400%;
+	height:200%;
+	background-color:white;
+	transition:all 2.5s;
+	transform: rotate(0);
+}
+
+#box4 h3{
+	position: absolute;
+	opacity:0;
+	top:600px;
+	left:80%;
+	transition:all 2.5s;
+	transform: translateY(0);
+}
+
+#box4:hover h2{
+	transform: rotate(-20deg);
+}
+#box4:hover h3{
+	transform: translateY(-370px);
+	opacity: 1;
+}
+
+#box5 #frame{
+	position:absolute;
+	width:80%;
+	height:80%;
+	top:10%;
+	left:10%;
+	border:3px solid black;
+	transition: 4s;
+	transform: rotate(0) translateY(-400px);
+	transform-origin: 0% 0%;
+}
+
+#box5:hover #frame{
+	transform: rotate(720deg) translateY(0px);
+}
+
+#music{
+	position:fixed;
+	right:50px;
+	top:50px;
+	animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate{
+	from{
+		transform: rotate(0);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
